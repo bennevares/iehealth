@@ -1,0 +1,55 @@
+:root {
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #1a1a1a;
+  --color-accent-red: #8a0000;
+  --color-accent-gold: #cba137;
+  --color-text-primary: #e0d5b7;
+  --color-text-muted: #8a8a8a;
+  --font-main: 'Times New Roman', serif;
+  
+  font-family: var(--font-main);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: radial-gradient(circle at center, #1a0505 0%, #000000 100%);
+}
+
+#root {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1, h2, h3 {
+  color: var(--color-accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+button {
+  background-color: var(--color-accent-red);
+  color: var(--color-text-primary);
+  border: 2px solid var(--color-accent-gold);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(138, 0, 0, 0.5);
+  transition: all 0.3s;
+}
+
+button:hover {
+  background-color: #a00000;
+  box-shadow: 0 0 20px rgba(203, 161, 55, 0.6);
+}

@@ -1,0 +1,18 @@
+/* App specific styles */
+.app-container {
+  /* Removed old container styles as DiabloLayout handles it */
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
