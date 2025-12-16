@@ -1,8 +1,12 @@
 import { useCharacter } from '../../context/CharacterContext';
+import { useAuth } from '../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import './DiabloLayout.css';
 
 export function DiabloLayout({ children }) {
   const { healthPct, staminaPct, recovery, biometrics } = useCharacter();
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   const healthTitle = "Health (Recovery): " + healthPct + "%\\nSleep: " + recovery.sleepHours + "h\\nDiet: " + recovery.mealScore + "/10";
   const staminaTitle = "Stamina (VO2 Max): " + staminaPct + "%\\nResting HR: " + biometrics.restingHR + " bpm";
@@ -12,6 +16,21 @@ export function DiabloLayout({ children }) {
       <header className="diablo-header">
         <div className="ornament-left"></div>
         <h1 className="diablo-title">Character Profile</h1>
+        <div className="user-menu">
+          {user && (
+            <button
+              className="profile-button"
+              onClick={() => navigate('/profile')}
+              title="View Profile"
+            >
+              {user.photoURL ? (
+                <img src={user.photoURL} alt={user.displayName} className="user-avatar" />
+              ) : (
+                <span className="user-initial">{user.displayName?.[0] || user.email?.[0] || '?'}</span>
+              )}
+            </button>
+          )}
+        </div>
         <div className="ornament-right"></div>
       </header>
 
